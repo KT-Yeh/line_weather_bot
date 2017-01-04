@@ -25,18 +25,23 @@ cityDic = { '基隆市': 'Keelung_City', '臺北市': 'Taipei_City', '新北市'
 			'連江縣': 'Lienchiang_County', '金門縣': 'Kinmen_County', '澎湖縣': 'Penghu_County'}
 
 def parseStr(text):
-	for i in range(len(text)-1):
-		keyword = text[i:i+2]
-		if keyword[0] == "台": keyword[0] = "臺"
-		if (keyword+"市") in cityDic:
-			return lookup(keyword+"市")
-		if (keyword+"縣") in cityDic:
-			return lookup(keyword+"縣")
-	for i in range(len(text)-2):
-		keyword = text[i:i+3]
-		if keyword[0] == "台": keyword[0] = "臺"
-		if keyword in cityDic:
-			return lookup(keyword)
+	for k in range(len(text)-1):
+		keyword = text[k:k+2]				#將文字切成2個字
+		if (keyword == "天氣"):
+			for i in range(len(text)-2):
+				keyword = text[i:i+3]       #將文字分成3個字
+				if keyword[0] == "台": keyword = "臺" + keyword[1:]
+				if keyword in cityDic:
+					return lookup(keyword)
+			for i in range(len(text)-1):	#將文字切成2個字
+				keyword = text[i:i+2]
+				if keyword[0] == "台": keyword = "臺" + keyword[1:]
+				if (keyword+"市") in cityDic:
+					return lookup(keyword+"市")
+				if (keyword+"縣") in cityDic:
+					return lookup(keyword+"縣")
+	return text			#不詢問天氣，echo
+	
 
 def lookup(key):
 	for a_tag in soup.find_all('a'):
