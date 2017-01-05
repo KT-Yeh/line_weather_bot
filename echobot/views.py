@@ -22,7 +22,8 @@ cityDic = { '基隆市': 'Keelung_City', '臺北市': 'Taipei_City', '新北市'
 			'南投縣': 'Nantou_County', '雲林縣': 'Yunlin_County', '嘉義市': 'Chiayi_City',
 			'宜蘭縣': 'Yilan_County', '花蓮縣': 'Hualien_County', '臺東縣': 'Taitung_County',
 			'臺南市': 'Tainan_City', '高雄市': 'Kaohsiung_City', '屏東縣': 'Pingtung_County',
-			'連江縣': 'Lienchiang_County', '金門縣': 'Kinmen_County', '澎湖縣': 'Penghu_County'}
+			'連江縣': 'Lienchiang_County', '金門縣': 'Kinmen_County', '澎湖縣': 'Penghu_County',
+			'嘉義縣': 'Chiayi_County'}
 
 def parseStr(text):
 	for k in range(len(text)-1):
